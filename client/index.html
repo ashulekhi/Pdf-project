@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="pdfapp">
+<head lang="en">
+    <meta charset="UTF-8">
+  <!--<link rel="stylesheet" href="/bower_components/bootstrap/dist/js/bootstrap.min.js"/>-->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="mainController">
+
+ <div><img src="logo.png" class="logo1" style = "display: block;  margin-left: auto; margin-right: auto"/></div>
+  <div class="main-label" style="
+    font-size: 15px;
+    font-weight: 700;
+    margin: 5px 0 3px;
+    text-align: center;  ">URL of a web page to save as PDF</div>
+<input type="text" ng-model="url" class="form-control" style="width: 50%;
+    margin-left: 305px;
+    height: 36px;"/><br/>
+
+<button ng-click="getUrl()" class="btn btn-info" id="convertbtn">Generate Pdf Now</button>
+  <br/>
+  <button ng-click="setConversion()" class="btn btn-info" id="schedulebtn">Generate Pdf Later</button>
+
+
+ <div class="datepicker" ng-show="showscheduler">
+
+   <form action="" class="schedulingform"></form>
+   <div class="main-label" style="
+    font-size: 15px;
+    font-weight: 700;
+    margin: 5px 0 3px;
+    text-align: center;  ">Enter your Email here </div>
+
+  <input type="email" ng-model="emailid"  class="form-control" style="width: 50%;
+    margin-left: 305px;
+    height: 36px;"/><br/>
+   <datetimepicker data-ng-model="scheduledate" style="margin-left: 400px"></datetimepicker>
+   <br/> <button class="btn btn-info" ng-click="schedulepdf()" style="margin-left: 732px" >Submit</button>
+ </div>
+
+
+
+
+  <div style="height: 200px ; width:400px ; border:solid 1px black" ng-show ="response=='true' " >
+    <p>your pdf file is generated</p>
+    <a class = "btn btn-info" ng-href="{{downloadlink}}"> Download File </a>
+    <a class = "btn btn-info" ng-href="{{viewlink}}" target="_blank"> View File </a>
+  </div>
+
+</div>
+
+
+
+
+
+<script src="bower_components/angular/angular.js"> </script>
+
+
+<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script type="text/javascript" src="bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+<script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+<script src="clientapp.js"> </script>
+<script src="main/maincontroller.js"> </script>
+<script src="main/mainService.js"> </script>
+<script src="main/schedule.service.js"> </script>
+</body>
+</html>

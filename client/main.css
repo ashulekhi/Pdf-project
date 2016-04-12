@@ -1,0 +1,27 @@
+
+.date-birth {
+
+  width: 300px;
+
+}
+
+#convertbtn {
+  display:block;
+  margin:auto;
+
+
+}
+
+#schedulebtn {
+  display:block;
+  margin:auto;
+
+
+}
+
+#datepicker {
+
+  border: solid 1px black;
+
+}
+
